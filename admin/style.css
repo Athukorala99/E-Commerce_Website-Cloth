@@ -1,0 +1,685 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    scroll-behavior: smooth;
+
+}
+
+::-webkit-scrollbar {
+    width: 10px;
+
+}
+
+::-webkit-scrollbar-track {
+    background-color: #088178;
+
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(#C0E4E3, rgb(2, 128, 111), #C0E4E3);
+    border-radius: 0.5rem;
+}
+
+::selection{
+    background-color: #088178;
+    color: #C0E4E3;
+}
+
+body{
+    overflow-x: hidden;
+}
+
+.container{
+    position: relative;
+    width: 100%;
+
+}
+
+.navigation{
+    position: fixed;
+    width: 300px;
+    height: 100%;
+    background-color: #088178;
+    transition: 0.5s;
+    overflow: hidden;
+
+}
+
+.navigation.active{
+    width: 60px;
+
+}
+
+.navigation ul{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+
+}
+
+.navigation ul li img{
+    width: 100px !important;
+}
+
+.navigation ul li{
+    position: relative;
+    list-style: none;
+    width: 100%;
+
+}
+
+.navigation ul li:hover,
+.navigation ul li a.active{
+    background-color: #C0E4E3;
+
+}
+
+.navigation ul li:hover a,
+.navigation ul li:hover a .icon i,
+.navigation ul li a.active,
+.navigation ul li a.active .icon i{
+    color: #088178;
+
+}
+
+.navigation ul li a .company{
+    letter-spacing: 3px;
+    font-size: 22px;
+    margin-left: 50px;
+
+}
+
+.navigation ul li:hover a .company{
+    color: #fff;
+
+}
+
+.navigation ul li:nth-child(1){
+    margin-bottom: 20px;
+
+}
+
+.navigation ul li:nth-child(1):hover{
+    background-color: transparent;
+}
+
+.navigation ul li a{
+    position: relative;
+    display: block;
+    width: 100%;
+    display: flex;
+    text-decoration: none;
+    color: #fff;
+    height: 50px;
+    padding: 10px;
+
+}
+
+.navigation ul li a .icon{
+    position: relative;
+    display: block;
+    min-width: 60px;
+    height: 60px;
+    line-height: 60px;
+    text-align: center;
+
+}
+
+.navigation ul li a .icon i{
+    color: #fff;
+    font-size: 24px;
+
+}
+
+.navigation ul li a .title{
+    position: relative;
+    display: block;
+    padding: 0 10px;
+    line-height: 60px;
+    white-space: nowrap;
+
+}
+
+.main{
+    position: absolute;
+    width: calc(100% - 300px);
+    left: 300px;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    transition: 0.5s;
+
+}
+
+.main.active{
+    width: calc(100% - 60px);
+    left: 60px;
+
+}
+
+.main .topbar{
+    width: 100%;
+    background-color: #C0E4E3;
+    height: 60px;
+    padding: 0 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+.toggle{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+
+}
+
+.toggle::before{
+    content: 'Welcome';
+    font-family: fontAwesome;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    line-height: 60px;
+    font-size: 24px;
+    text-align: center;
+    color: #088178;
+
+}
+
+.search{
+    position: relative;
+    width: 400px;
+    margin: 0 10px;
+
+}
+
+.search label{
+    position: relative;
+    width: 100%;
+
+}
+
+.search label input{
+    width: 100%;
+    height: 40px;
+    border-radius: 40px;
+    padding: 5px 20px;
+    padding-left: 35px;
+    outline: none;
+    border: 1px solid #088178;
+    background-color: #C0E4E3;
+
+}
+
+.search label .fa-magnifying-glass{
+    position: absolute;
+    left: 15px;
+    top: 4px;
+    color: #088178;
+}
+
+.user{
+    position: relative;
+    min-width: 50px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.user img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.cardBox{
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 20px;
+
+}
+
+.cardBox .card{
+    position: relative;
+    background-color: #C0E4E3;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+
+}
+
+.cardBox .card .numbers{
+    position: relative;
+    font-size: 2em;
+    font-weight: 500;
+
+}
+
+.cardBox .card .cardName{
+    color: #088179a6;
+
+}
+
+.cardBox .card .iconBox{
+    font-size: 2.5em;
+    color: #088178;
+}
+
+.details{
+    position: relative;
+    width: 100%;
+    padding-top: 0;
+    padding: 20px;
+    display: grid;
+    grid-gap: 20px; 
+    grid-template-columns: 2fr 1fr;
+
+}
+.details.orders{
+    grid-template-columns: 1fr 0fr;
+}
+
+.details .recentOrders{
+    position: relative;
+    min-height: 530px;
+    background-color: #C0E4E3;
+    padding: 20px;
+
+}
+
+.cardHeader{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+
+}
+
+.cardHeader h2{
+    font-weight: 600;
+
+}
+
+.btn{
+    position: relative;
+    padding: 4px 8px;
+    background-color: #088178;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 6px;
+    border: 2px solid transparent;
+    transition: 0.2s;
+}
+.btn:hover{
+    background-color: transparent;
+    color: #088178;
+    border: 2px solid #088178;
+}
+.btn-remove{
+    padding: 4px 8px;
+    background-color: #fff;
+    color: #088178;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: 700;
+    border: 2px solid #088178;
+    transition: 0.2s;
+}
+.btn-remove:hover{
+    background-color: #C0E4E3;
+    color: #088178;
+}
+
+.details table{
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.details table thead td{
+    font-weight: 600;
+}
+
+.details .recentOrders table tr{
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+.details .recentOrders table .address{
+    margin-top: 20px;
+}
+.details .recentOrders table .address tr{
+    border-top: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.details .recentOrders table tbody tr:last-child{
+    border-bottom: none;
+
+}
+
+.details .recentOrders table tbody tr:hover{
+    background-color: #088178;
+    color: #fff;
+}
+
+.details .recentOrders table tr td{
+    padding: 9px 5px;
+
+}
+
+.details .recentOrders table tbody tr td:last-child,
+.details .recentOrders table thead tr td:last-child{
+    text-align: right;
+}
+
+.details .recentOrders table tbody tr td:nth-child(2),
+.details .recentOrders table thead tr td:nth-child(2){
+    padding-right: 20px;
+}
+
+.details .recentOrders table tbody tr td:nth-child(3),
+.details .recentOrders table thead tr td:nth-child(3){
+    text-align: center;
+
+}
+
+.status{
+    padding: 2px 15px;
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: 300;
+    cursor: pointer;
+    border: none;
+    outline: none;
+    background-color: #fff;
+}
+
+.details .recentCustomers{
+    position: relative;
+    min-height: 530px;
+    background-color: #C0E4E3;
+    padding: 20px;
+
+}
+
+.details .recentCustomers .imgBx{
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    overflow: hidden;
+
+}
+
+.details .recentCustomers .imgBx img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+
+.details .recentCustomers table tr td h4 span{
+    font-size: 14px;
+    color: #999;
+
+}
+
+.details .recentCustomers table tr:hover,
+
+.details .recentCustomers table tr:hover td h4 span{
+    background-color: #088178;
+    color: #fff;
+
+}
+
+.details .recentCustomers table tr td{
+    padding: 7px 10px;
+}
+
+.details .recentCustomers table tr td h4{
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.2em;
+
+}
+
+.accountSettings{
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.accountSettings label{
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    align-items: flex-start;
+    width: 40%;
+    text-align: left;
+
+}
+.accountSettings input{
+   padding: 5px;
+   font-size: 16px;
+   margin-bottom: 20px;
+   width: 40%;
+   border: none;
+   outline: none;
+   box-shadow: 3px 3px 10px 5px rgb(180, 180, 180);
+}
+.accountSettings input[type=submit]{
+   background-color: #088178;
+   color: #fff;
+   transition: 0.3s;
+   margin-top: 20px;
+   letter-spacing: 1px;
+   font-weight: 700;
+   width: 20%;
+}
+.accountSettings input[type=submit]:hover{
+   background-color: #C0E4E3;
+   color: #088178;
+   
+}
+
+
+.product-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.product-container form h2{
+    font-size: 30px;
+    font-weight: 800;
+    margin-bottom: 10px;
+    color: #088178;
+}
+
+.product-container form .fields{
+    width: 50vw;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-container form .fields label{
+    color: #088178;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 800;
+    margin-bottom: 5px;
+}
+
+.product-container form .fields input,
+
+.product-container form .fields select{
+    margin-bottom: 20px;
+    font-size: 15px;
+    padding: 5px;
+    border: none;
+    outline: none;
+    background-color: #C0E4E3;
+    border-radius: 3px;
+}
+
+.product-container form .fields select{
+    color: rgb(90, 90, 90);
+
+}
+
+.product-container form .btns input{
+    padding: 5px 20px;
+    margin: 10px;
+    font-size: 18px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    border: 2px solid transparent;
+    background-color: #088178;
+    color: #C0E4E3;
+    border-radius: 3px;
+    transition: 0.3s ease;
+
+}
+
+.product-container form .btns input:hover{
+    color: #088178;
+    background-color: transparent;
+    border: 2px solid #088178;
+
+}
+
+
+
+#rangeVal{
+    margin-top: -20px;
+    font-size: 18px;
+    font-weight: 500;
+}
+
+.product-container form .fields #file{
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(116, 116, 116);
+}
+
+.product-container form .fields #file::-webkit-file-upload-button{
+    color: #C0E4E3;
+    padding: 8px;
+    margin: -5px 10px -5px -5px;
+    background-color: #088178;
+    border: none;
+}
+
+.product-container form .fields #price::-webkit-inner-spin-button,
+.product-container form .fields #price::-webkit-outer-spin-button{
+    -webkit-appearance: none;
+    margin: 0;
+
+}
+
+
+.table-container{
+    padding: 0 10%;
+    margin: 40px auto;
+}
+.table-container.orders{
+    background-color: #C0E4E3;
+    padding: 0 1%;
+}
+
+.orders .table thead:nth-child(3),
+.orders .table thead:nth-child(7){
+    background-color: #6cc9c2;
+}
+.heading{
+    font-size: 40px;
+    text-align: center;
+    color: #088178;
+    margin: 40px;
+}
+
+.table{
+    width: 100%;
+    border-collapse: collapse;
+}
+.table thead{
+    background-color: #088178;
+}
+
+.table thead tr th{
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.35px;
+    color: white;
+    opacity: 1;
+    padding: 12px;
+    vertical-align: top;
+    border: 1px solid white;
+}
+
+.table tbody tr td{
+    font-size: 14px;
+    letter-spacing: 0.35px;
+    font-weight: normal;
+    background-color: #C0E4E3;
+    padding: 0px 8px;
+    text-align: center;
+
+}
+
+.table tbody tr td button{
+    background-color: #088178;
+    border: 2px solid transparent;
+    color: #C0E4E3;
+    padding: 2px 5px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.2s ease;
+
+}
+
+.table tbody tr td a{
+    text-decoration: none;
+    background-color: #088178;
+    border: 2px solid transparent;
+    color: #C0E4E3;
+    padding: 2px 5px;
+    font-size: 14px;
+    font-weight: 700;
+    transition: 0.2s ease;
+}
+
+.table tbody tr td button:hover,
+.table tbody tr td a:hover{
+    background-color: transparent;
+    border: 2px solid #088178;
+    color: #088178;
+
+}
+
